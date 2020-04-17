@@ -17,7 +17,7 @@ class Enigma < Cipher
 
   def separate_keys(key)
     keys = {a: key[0..1], b: key[1..2], c: key[2..3], d: key[3..4]}
-    keys.transform_values!(&:to_i)
+    keys.transform_values(&:to_i)
   end
 
   def generate_shifts(key, date)
