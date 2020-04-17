@@ -36,7 +36,7 @@ class Enigma < Cipher
 
   def mutate_message(message, shifts)
     mutated = ""
-    message.each_char.with_index do |char, index|
+    message.downcase.each_char.with_index do |char, index|
       if @char_set.include?(char)
         mutated += shift_char_set(index, shifts)[@char_set.index(char)]
       end
