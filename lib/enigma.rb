@@ -9,11 +9,9 @@ class Enigma < Cipher
     date.to_i ** 2
   end
 
-  def date_offset(date)
-    squared_date(date).to_s[-4 ..-1].to_i
-  end
-
   def generate_offsets(date)
-    offsets = {a: date_offset(date)[0]}
+    offset = squared_date(date).to_s[-4..-1]
+    offset_shifts = {a: offset[0], b: offset[1], c: offset[2], d: offset[3]}
+    offset_shifts.transform_values(&:to_i)
   end
 end
