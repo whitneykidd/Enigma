@@ -47,4 +47,11 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected_set2, @enigma.shift_char_set(14, shifts)
   end
+
+  def test_it_can_mutate_message
+    shifts = {a: 3, b: 27, c: 73, d: 20}
+    message = 'hello world'
+    cipher_text = 'keder ohulw'
+    assert_equal cipher_text, @enigma.mutate_message(message, shifts)
+  end
 end
