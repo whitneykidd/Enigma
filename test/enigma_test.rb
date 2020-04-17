@@ -31,7 +31,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_shifts
-    skip
     expected_shifts = {a: 3, b: 27, c: 73, d: 20}
     assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895')
   end
