@@ -19,4 +19,8 @@ class EnigmaTest < Minitest::Test
   def test_it_can_square_date
     assert_equal 1672401025, @enigma.squared_date('040895')
   end
+
+  def test_it_can_create_date_offset
+    assert_equal '1025', @enigma.date_offset('040895')
+  end
 end
