@@ -24,4 +24,15 @@ class EnigmaTest < Minitest::Test
     expected_offsets = {a: 1, b: 0, c: 2, d: 5}
     assert_equal expected_offsets, @enigma.generate_offsets('040895')
   end
+
+  def test_it_can_separate_keys
+    expected_keys = {a: 02, b: 27, c: 71, d: 15}
+    assert_equal expected_keys, @enigma.separate_keys('02715')
+  end
+
+  def test_it_can_generate_shifts
+    skip
+    expected_shifts = {a: 3, b: 27, c: 73, d: 20}
+    assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895')
+  end
 end
