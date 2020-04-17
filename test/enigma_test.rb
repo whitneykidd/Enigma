@@ -1,7 +1,6 @@
 require_relative 'test_helper'
 require './lib/enigma'
 
-
 class EnigmaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
@@ -44,7 +43,6 @@ class EnigmaTest < Minitest::Test
 
     expected_set2 = ['t', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c', 'd', 'e',
                     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's']
-
     assert_equal expected_set2, @enigma.shift_char_set(14, shifts)
   end
 
