@@ -53,5 +53,9 @@ class EnigmaTest < Minitest::Test
     message = 'hello world'
     cipher_text = 'keder ohulw'
     assert_equal cipher_text, @enigma.mutate_message(message, shifts)
+
+    message2 = 'HELLO WORLD!'
+    cipher_text2 = 'keder ohulw!'
+    assert_equal cipher_text2, @enigma.mutate_message(message2, shifts)
   end
 end
