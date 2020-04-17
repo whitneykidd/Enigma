@@ -10,6 +10,10 @@ class Enigma < Cipher
   end
 
   def date_offset(date)
-    squared_date(date).to_s[-4 ..-1]
+    squared_date(date).to_s[-4 ..-1].to_i
+  end
+
+  def generate_offsets(date)
+    offsets = {a: date_offset(date)[0]}
   end
 end
