@@ -26,4 +26,8 @@ class Enigma < Cipher
       (key + offset)
     end
   end
+
+  def shift_char_set(shift_num)
+    @char_set.rotate(shift_num)
+  end
 end

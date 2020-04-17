@@ -34,4 +34,15 @@ class EnigmaTest < Minitest::Test
     expected_shifts = {a: 3, b: 27, c: 73, d: 20}
     assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895')
   end
+
+  def test_it_can_shift_character_set
+    expected_set = ['d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                    'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c']
+    assert_equal expected_set, @enigma.shift_char_set(3)
+
+    expected_set2 = ['s', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c', 'd', 'e',
+                    'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
+    assert_equal expected_set2, @enigma.shift_char_set(18)
+
+  end
 end
