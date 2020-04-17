@@ -27,7 +27,10 @@ class Enigma < Cipher
     end
   end
 
-  def shift_char_set(shift_num)
-    @char_set.rotate(shift_num)
+  def shift_char_set(index, shifts)
+    return @char_set.rotate(shifts[:a]) if index % 4 == 0
+    return @char_set.rotate(shifts[:b]) if index % 4 == 1
+    return @char_set.rotate(shifts[:c]) if index % 4 == 2
+    return @char_set.rotate(shifts[:d]) if index % 4 == 3
   end
 end

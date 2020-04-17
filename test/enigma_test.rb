@@ -36,13 +36,15 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_shift_character_set
-    expected_set = ['d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
-                    'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c']
-    assert_equal expected_set, @enigma.shift_char_set(3)
+    shifts = {a: 3, b: 27, c: 73, d: 20}
+    expected_set = ['u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
+                    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']
+    assert_equal expected_set, @enigma.shift_char_set(3, shifts)
 
-    expected_set2 = ['s', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c', 'd', 'e',
-                    'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
-    assert_equal expected_set2, @enigma.shift_char_set(18)
 
+    expected_set2 = ['t', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c', 'd', 'e',
+                    'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's']
+
+    assert_equal expected_set2, @enigma.shift_char_set(14, shifts)
   end
 end
