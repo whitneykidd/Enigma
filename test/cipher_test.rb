@@ -31,4 +31,9 @@ class CipherTest < Minitest::Test
   def test_it_can_square_date
     assert_equal 1672401025, @cipher.squared_date('040895')
   end
+
+  def test_it_can_generate_offsets
+    expected_offsets = {a: 1, b: 0, c: 2, d: 5}
+    assert_equal expected_offsets, @cipher.generate_offsets('040895')
+  end
 end
