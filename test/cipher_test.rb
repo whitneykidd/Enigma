@@ -27,4 +27,8 @@ class CipherTest < Minitest::Test
     @cipher.stubs(:rand).returns('2715')
     assert_equal '02715', @cipher.generate_key
   end
+
+  def test_it_can_square_date
+    assert_equal 1672401025, @cipher.squared_date('040895')
+  end
 end

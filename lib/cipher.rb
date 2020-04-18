@@ -9,4 +9,8 @@ class Cipher
   def generate_key
     rand(99999).to_s.rjust(5, '0')
   end
+
+  def squared_date(date)
+    date.to_i ** 2
+  end
 end
