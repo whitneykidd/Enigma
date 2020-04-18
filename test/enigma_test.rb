@@ -59,4 +59,12 @@ class EnigmaTest < Minitest::Test
     cipher_text2 = 'keder ohulw!'
     assert_equal cipher_text2, @enigma.mutate_message(message2, shifts)
   end
+
+  def test_it_can_encrypt_message
+    message = 'hello world'
+    key = "02715"
+    date = "040895"
+    cipher_text = 'keder ohulw'
+    assert_equal cipher_text, @enigma.encrypt(message, key, date)
+  end
 end
