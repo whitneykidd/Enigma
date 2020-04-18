@@ -24,4 +24,11 @@ class Cipher
     keys = {a: key[0..1], b: key[1..2], c: key[2..3], d: key[3..4]}
     keys.transform_values(&:to_i)
   end
+
+  def generate_shifts(key, date, direction)
+    offsets = generate_offsets(date)
+    separate_keys(key).merge(offsets) do |_, key, offset|
+      (key + offset) * direction
+    end
+  end
 end

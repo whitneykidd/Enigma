@@ -41,4 +41,12 @@ class CipherTest < Minitest::Test
     expected_keys = {a: 02, b: 27, c: 71, d: 15}
     assert_equal expected_keys, @cipher.separate_keys('02715')
   end
+
+  def test_it_can_generate_shifts
+    expected_shifts = {a: 3, b: 27, c: 73, d: 20}
+    assert_equal expected_shifts, @cipher.generate_shifts('02715', '040895', 1)
+
+    expected_shifts2 = {:a=>-3, :b=>-27, :c=>-73, :d=>-20}
+    assert_equal expected_shifts2, @cipher.generate_shifts('02715', '040895', -1)
+  end
 end
