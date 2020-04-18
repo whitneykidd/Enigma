@@ -61,4 +61,15 @@ class CipherTest < Minitest::Test
                     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's']
     assert_equal expected_set2, @cipher.shift_char_set(14, shifts)
   end
+
+  def test_it_can_mutate_message
+    shifts = {a: 3, b: 27, c: 73, d: 20}
+    message = 'hello world'
+    cipher_text = 'keder ohulw'
+    assert_equal cipher_text, @cipher.mutate_message(message, shifts)
+
+    message2 = 'HELLO WORLD!'
+    cipher_text2 = 'keder ohulw!'
+    assert_equal cipher_text2, @cipher.mutate_message(message2, shifts)
+  end
 end

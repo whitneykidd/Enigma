@@ -38,4 +38,16 @@ class Cipher
     return @char_set.rotate(shifts[:c]) if index % 4 == 2
     return @char_set.rotate(shifts[:d]) if index % 4 == 3
   end
+
+  def mutate_message(message, shifts)
+    mutated = ""
+    message.downcase.each_char.with_index do |char, index|
+      if @char_set.include?(char)
+        mutated += shift_char_set(index, shifts)[@char_set.index(char)]
+      else
+        mutated += char
+      end
+    end
+  mutated
+  end
 end
