@@ -14,7 +14,7 @@ class Enigma < Cipher
     shifts = generate_shifts(key, date, -1)
     mutate_message(cipher_text, shifts)
 
-    {encryption: mutate_message(cipher_text, shifts),
+    {decryption: mutate_message(cipher_text, shifts),
      key: key,
      date: date}
   end
