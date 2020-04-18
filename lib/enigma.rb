@@ -1,7 +1,7 @@
 require './lib/cipher'
 
 class Enigma < Cipher
-  def encrypt(message, key, date)
+  def encrypt(message, key = generate_key, date = @date)
     shifts = generate_shifts(key, date, 1)
     mutate_message(message, shifts)
 
@@ -10,7 +10,7 @@ class Enigma < Cipher
      date: date}
   end
 
-  def decrypt(cipher_text, key, date)
+  def decrypt(cipher_text, key, date = @date)
     shifts = generate_shifts(key, date, -1)
     mutate_message(cipher_text, shifts)
 
