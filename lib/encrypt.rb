@@ -7,8 +7,8 @@ require './lib/enigma'
  message = File.open(ARGV[0], 'r')
  message.read
  enigma = Enigma.new
- encrypted = enigma.encrypt(message)
+ encrypted_message = enigma.encrypt(message)
 
- encrypted_text = File.open(ARGV[1], 'w') { |file| file.write(encrypted[:encryption]) }
-require "pry"; binding.pry
- p "Created '#{ARGV[1]}' with the key #{encrypted[:key]} and date #{encrypted[:date]}"
+ encrypted_text = File.open(ARGV[1], 'w') { |file| file.write(encrypted_message[:encryption]) }
+# require "pry"; binding.pry
+ p "Created '#{ARGV[1]}' with the key #{encrypted_message[:key]} and date #{encrypted_message[:date]}"
