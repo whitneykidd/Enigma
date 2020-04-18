@@ -22,4 +22,9 @@ class CipherTest < Minitest::Test
   def test_it_can_return_todays_date
     assert_equal '040895', @cipher.date
   end
+
+  def test_it_can_generate_key
+    @cipher.stubs(:rand).returns('2715')
+    assert_equal '02715', @cipher.generate_key
+  end
 end
