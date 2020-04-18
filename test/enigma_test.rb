@@ -20,10 +20,15 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt_message
-    message = 'hello world'
+    cipher_text = 'keder ohulw'
     key = "02715"
     date = "040895"
-    cipher_text = 'keder ohulw'
-    assert_equal message, @enigma.decrypt(cipher_text, key, date)
+
+    expected = {
+            encryption: 'hello world',
+            key: "02715",
+            date: "040895"
+              }
+    assert_equal expected, @enigma.decrypt(cipher_text, key, date)
   end
 end

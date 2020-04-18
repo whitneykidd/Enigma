@@ -13,5 +13,9 @@ class Enigma < Cipher
   def decrypt(cipher_text, key, date)
     shifts = generate_shifts(key, date, -1)
     mutate_message(cipher_text, shifts)
+
+    {encryption: mutate_message(cipher_text, shifts),
+     key: key,
+     date: date}
   end
 end
