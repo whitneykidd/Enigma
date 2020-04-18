@@ -31,7 +31,10 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_generate_shifts
     expected_shifts = {a: 3, b: 27, c: 73, d: 20}
-    assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895')
+    assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895', 1)
+
+    expected_shifts2 = {:a=>-3, :b=>-27, :c=>-73, :d=>-20}
+    assert_equal expected_shifts2, @enigma.generate_shifts('02715', '040895', -1)
   end
 
   def test_it_can_shift_character_set
