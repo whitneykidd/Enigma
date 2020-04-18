@@ -36,4 +36,9 @@ class CipherTest < Minitest::Test
     expected_offsets = {a: 1, b: 0, c: 2, d: 5}
     assert_equal expected_offsets, @cipher.generate_offsets('040895')
   end
+
+  def test_it_can_separate_keys
+    expected_keys = {a: 02, b: 27, c: 71, d: 15}
+    assert_equal expected_keys, @cipher.separate_keys('02715')
+  end
 end
