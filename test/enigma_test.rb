@@ -31,7 +31,10 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_generate_shifts
     expected_shifts = {a: 3, b: 27, c: 73, d: 20}
-    assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895')
+    assert_equal expected_shifts, @enigma.generate_shifts('02715', '040895', 1)
+
+    expected_shifts2 = {:a=>-3, :b=>-27, :c=>-73, :d=>-20}
+    assert_equal expected_shifts2, @enigma.generate_shifts('02715', '040895', -1)
   end
 
   def test_it_can_shift_character_set
@@ -55,5 +58,21 @@ class EnigmaTest < Minitest::Test
     message2 = 'HELLO WORLD!'
     cipher_text2 = 'keder ohulw!'
     assert_equal cipher_text2, @enigma.mutate_message(message2, shifts)
+  end
+
+  def test_it_can_encrypt_message
+    message = 'hello world'
+    key = "02715"
+    date = "040895"
+    cipher_text = 'keder ohulw'
+    assert_equal cipher_text, @enigma.encrypt(message, key, date)
+  end
+
+  def test_it_can_decrypt_message
+    message = 'hello world'
+    key = "02715"
+    date = "040895"
+    cipher_text = 'keder ohulw'
+    assert_equal message, @enigma.decrypt(cipher_text, key, date)
   end
 end

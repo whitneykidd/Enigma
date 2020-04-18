@@ -20,10 +20,10 @@ class Enigma < Cipher
     keys.transform_values(&:to_i)
   end
 
-  def generate_shifts(key, date)
+  def generate_shifts(key, date, direction)
     offsets = generate_offsets(date)
     separate_keys(key).merge(offsets) do |_, key, offset|
-      (key + offset)
+      (key + offset) * direction
     end
   end
 
@@ -44,5 +44,15 @@ class Enigma < Cipher
       end
     end
   mutated
+  end
+
+  def encrypt(message, key, date)
+    shifts = generate_shifts(key, date, 1)
+    mutate_message(message, shifts)
+  end
+
+  def decrypt(cipher_text, key, date)
+    shifts = generate_shifts(key, date, -1)
+    mutate_message(cipher_text, shifts)
   end
 end
