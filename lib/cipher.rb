@@ -1,4 +1,5 @@
 require 'date'
+
 class Cipher
   attr_reader :char_set, :date
   def initialize

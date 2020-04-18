@@ -1,7 +1,6 @@
 require_relative 'test_helper'
 require './lib/cipher'
 
-
 class CipherTest < Minitest::Test
   def setup
     Date.stubs(:today).returns(Date.new(1995, 8, 4))
