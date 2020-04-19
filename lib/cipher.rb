@@ -8,7 +8,7 @@ class Cipher
   end
 
   def generate_key
-    rand(99999).to_s.rjust(5, '0')
+    "0" + rand(9999).to_s.rjust(4, "0")
   end
 
   def squared_date(date)
@@ -45,6 +45,7 @@ class Cipher
     message.downcase.each_char.with_index do |char, index|
       if @char_set.include?(char)
         mutated += shift_char_set(index, shifts)[@char_set.index(char)]
+       # require "pry"; binding.pry
       else
         mutated += char
       end
