@@ -9,7 +9,7 @@ class Enigma < Cipher
      date: date}
   end
 
-  def decrypt(cipher_text, key, date)
+  def decrypt(cipher_text, key, date = @date)
     shifts = generate_shifts(key, date, -1)
 
     {decryption: mutate_message(cipher_text, shifts),
