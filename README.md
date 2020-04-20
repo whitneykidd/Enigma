@@ -3,7 +3,7 @@
 ----
 Enigma is the final independent project for BE Mod 1 where the goal is to build a tool for cracking an encryption algorithm.
 
-##Self Assesment
+## Self Assesment
 ### Functionality
 Meets Expectations
 
